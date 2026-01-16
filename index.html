@@ -6,85 +6,54 @@
     <link rel="stylesheet" href="styled.css">
 </head>
 <body>
+
 <header>
     <div class="logo">CarePlus</div>
-    <nav class="show-desktop">
-        <a href="#book">Book Appointment</a>
+    <nav>
+        <a href="#book">Book</a>
         <a href="#appointments">Appointments</a>
     </nav>
 </header>
+
 <div class="hero">
     <div class="hero-content">
-        <div class="left">
-            <h1>Hospital Appointment Booking System</h1>
-            <p>Book your appointment with our professional doctors easily and quickly.</p>
-            <a href="#book"><button>Book Now</button></a>
-        </div>
-        <div class="right">
-            <img src="https://images.unsplash.com/photo-1586773860418-d37222d8fce3" alt="Hospital">
-        </div>
+        <h1>Hospital Appointment Booking System</h1>
+        <p>Book your appointment with our professional doctors easily and quickly.</p>
+        <a href="#book"><button>Book Now</button></a>
     </div>
 </div>
+
 <section id="book">
-    <span class="section-indicator">appointment</span>
     <h2>Book an Appointment</h2>
-
     <form id="appointmentForm">
-        <p>
-            <label>Patient Name</label><br>
-            <input type="text" id="name" required>
-        </p>
-
-        <p>
-            <label>Department</label><br>
-            <select id="department" required>
-                <option value="">Select</option>
-                <option>General Medicine</option>
-                <option>Cardiology</option>
-                <option>Pediatrics</option>
-                <option>Orthopedics</option>
-            </select>
-        </p>
-
-        <p>
-            <label>Doctor</label><br>
-            <select id="doctor" required>
-                <option value="">Select</option>
-                <option>Dr. Abebe</option>
-                <option>Dr. Hana</option>
-                <option>Dr. Samuel</option>
-                <option>Dr. Selam</option>
-            </select>
-        </p>
-
-        <p>
-            <label>Date</label><br>
-            <input type="date" id="date" required>
-        </p>
-
-        <p>
-            <label>Time</label><br>
-            <input type="time" id="time" required>
-        </p>
-
+        <input type="text" id="name" placeholder="Patient Name" required>
+        <select id="department" required>
+            <option value="">Select Department</option>
+            <option>General Medicine</option>
+            <option>Cardiology</option>
+            <option>Pediatrics</option>
+            <option>Orthopedics</option>
+        </select>
+        <select id="doctor" required>
+            <option value="">Select Doctor</option>
+            <option>Dr. Abebe</option>
+            <option>Dr. Hana</option>
+            <option>Dr. Samuel</option>
+            <option>Dr. Selam</option>
+        </select>
+        <input type="date" id="date" required>
+        <input type="time" id="time" required>
         <button type="submit">Book Appointment</button>
     </form>
 </section>
-<section id="appointments" class="services">
-    <div class="services-header">
-        <span class="section-indicator">records</span>
-        <h2>Booked Appointments</h2>
-    </div>
 
-    <ul class="services-list" id="appointmentList">
-        <!-- Appointments appear here -->
-    </ul>
+<section id="appointments">
+    <h2>Booked Appointments</h2>
+    <ul class="services-list" id="appointmentList"></ul>
 </section>
 
 <footer>
-    <div class="content footer-bottom">
-        <p>© 2026 CarePlus Hospital | Web Programming Assignment</p>
-    </div>
+    <p>© 2026 CarePlus Hospital | Web Programming Assignment</p>
 </footer>
 
 <script src="script.js"></script>
