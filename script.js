@@ -1,51 +1,46 @@
-const form = document.getElementById("appointmentForm");
-const list = document.getElementById("appointmentList");
+// Fade-in animation
+const fadeElements = document.querySelectorAll('.fade-in');
 
-let appointments = JSON.parse(localStorage.getItem("appointments")) || [];
-
-function displayAppointments() {
-    list.innerHTML = "";
-
-    appointments.forEach((app, index) => {
-        const li = document.createElement("li");
-        li.className = "service-item";
-
-        li.innerHTML = `
-            <div class="service-card">
-                <h3>${app.name}</h3>
-                <p><strong>Department:</strong> ${app.department}</p>
-                <p><strong>Doctor:</strong> ${app.doctor}</p>
-                <p><strong>Date:</strong> ${app.date}</p>
-                <p><strong>Time:</strong> ${app.time}</p>
-                <button onclick="deleteAppointment(${index})">Cancel</button>
-            </div>
-        `;
-        list.appendChild(li);
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('show');
+        }
     });
-}
-
-form.addEventListener("submit", function(e) {
-    e.preventDefault();
-
-    const appointment = {
-        name: document.getElementById("name").value,
-        department: document.getElementById("department").value,
-        doctor: document.getElementById("doctor").value,
-        date: document.getElementById("date").value,
-        time: document.getElementById("time").value
-    };
-
-    appointments.push(appointment);
-    localStorage.setItem("appointments", JSON.stringify(appointments));
-
-    form.reset();
-    displayAppointments();
 });
 
-function deleteAppointment(index) {
-    appointments.splice(index, 1);
-    localStorage.setItem("appointments", JSON.stringify(appointments));
-    displayAppointments();
-}
+fadeElements.forEach(el => observer.observe(el));
 
-displayAppointments();
+// Appointment form submission
+const form = document.getElementById("appointment-form");
+const message = document.getElementById("form-message");
+
+form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    message.textContent = "✅ Appointment booked successfully! We will contact you soon.";
+    form.reset();
+});
+// Fade-in animation
+const fadeElements = document.querySelectorAll('.fade-in');
+
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('show');
+        }
+    });
+});
+
+fadeElements.forEach(el => observer.observe(el));
+
+// Appointment form submission
+const form = document.getElementById("appointment-form");
+const message = document.getElementById("form-message");
+
+form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    message.textContent = "✅ Appointment booked successfully! We will contact you soon.";
+    form.reset();
+});
