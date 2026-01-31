@@ -3,78 +3,327 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hospital Appointment Booking System</title>
+    <title>Addis Care Hospital - Appointment Booking</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-hospital-alt"></i>
+                <h1>Addis<span>Care</span> Hospital</h1>
+            </div>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav class="nav-menu" id="navMenu">
+                <ul>
+                    <li><a href="#" class="active">Home</a></li>
+                    <li><a href="#doctors">Doctors</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-<header>
-    <nav>
-        <h2 class="logo">CityCare Hospital</h2>
-        <ul>
-            <li><a href="#home" class="active">Home</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#appointment">Book Appointment</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-</header>
+    <section class="hero">
+        <div class="container">
+            <h2>Book Your Medical Appointment Online</h2>
+            <p>Schedule your visit with our expert doctors at Addis Care Hospital. Quick, easy, and secure booking for all your healthcare needs in Ethiopia.</p>
+            <a href="#booking-form" class="btn">Book Appointment Now</a>
+        </div>
+    </section>
 
-<!-- HERO -->
-<section id="home" class="hero fade-in">
-    <h1>Your Health, Our Priority</h1>
-    <p>Book hospital appointments easily and securely online</p>
-    <a href="#appointment" class="btn">Book Now</a>
-</section>
+    <main class="container main-content">
+        <section class="booking-section">
+            <div class="booking-form-container" id="booking-form">
+                <h3 class="section-title">Patient Information</h3>
+                <form id="appointmentForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName">First Name <span class="required">*</span></label>
+                            <input type="text" id="firstName" class="form-control" required>
+                            <div class="error-message" id="firstNameError"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name <span class="required">*</span></label>
+                            <input type="text" id="lastName" class="form-control" required>
+                            <div class="error-message" id="lastNameError"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Email Address <span class="required">*</span></label>
+                            <input type="email" id="email" class="form-control" required>
+                            <div class="error-message" id="emailError"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number <span class="required">*</span></label>
+                            <input type="tel" id="phone" class="form-control" placeholder="09XX XXX XXX" required>
+                            <div class="error-message" id="phoneError"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="dob">Date of Birth <span class="required">*</span></label>
+                        <input type="date" id="dob" class="form-control" required>
+                        <div class="error-message" id="dobError"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="gender">Gender <span class="required">*</span></label>
+                        <select id="gender" class="form-control" required>
+                            <option value="">Select Gender</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                        </select>
+                        <div class="error-message" id="genderError"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="department">Select Department <span class="required">*</span></label>
+                        <select id="department" class="form-control" required>
+                            <option value="">Choose a department</option>
+                            <option value="cardiology">Cardiology</option>
+                            <option value="internal_medicine">Internal Medicine</option>
+                            <option value="pediatrics">Pediatrics</option>
+                            <option value="obstetrics">Obstetrics & Gynecology</option>
+                            <option value="surgery">General Surgery</option>
+                            <option value="orthopedics">Orthopedics</option>
+                            <option value="ophthalmology">Ophthalmology</option>
+                            <option value="dentistry">Dentistry</option>
+                            <option value="dermatology">Dermatology</option>
+                            <option value="ent">ENT (Ear, Nose & Throat)</option>
+                        </select>
+                        <div class="error-message" id="departmentError"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="appointmentDate">Preferred Date <span class="required">*</span></label>
+                        <input type="date" id="appointmentDate" class="form-control" min="" required>
+                        <div class="error-message" id="dateError"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="symptoms">Symptoms / Reason for Visit</label>
+                        <textarea id="symptoms" class="form-control" rows="3" placeholder="Please describe your symptoms or reason for appointment"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary btn-block" id="submitBtn">Continue to Doctor Selection</button>
+                </form>
+            </div>
+            
+            <div class="appointment-summary">
+                <h3 class="section-title">Appointment Summary</h3>
+                <div class="summary-content">
+                    <div class="summary-item">
+                        <span class="summary-label">Patient:</span>
+                        <span class="summary-value" id="summaryName">Not specified</span>
+                    </div>
+                    <div class="summary-item">
+                        <span class="summary-label">Gender:</span>
+                        <span class="summary-value" id="summaryGender">Not selected</span>
+                    </div>
+                    <div class="summary-item">
+                        <span class="summary-label">Department:</span>
+                        <span class="summary-value" id="summaryDepartment">Not selected</span>
+                    </div>
+                    <div class="summary-item">
+                        <span class="summary-label">Date:</span>
+                        <span class="summary-value" id="summaryDate">Not selected</span>
+                    </div>
+                    <div class="summary-item">
+                        <span class="summary-label">Doctor:</span>
+                        <span class="summary-value" id="summaryDoctor">Not selected</span>
+                    </div>
+                    <div class="summary-item">
+                        <span class="summary-label">Time:</span>
+                        <span class="summary-value" id="summaryTime">Not selected</span>
+                    </div>
+                    <div class="summary-item total">
+                        <span class="summary-label">Consultation Fee:</span>
+                        <span class="summary-value" id="summaryFee">0 Birr</span>
+                    </div>
+                </div>
+                <div class="summary-actions">
+                    <button class="btn btn-secondary btn-block" id="resetBtn">Reset Form</button>
+                    <button class="btn btn-success btn-block" id="confirmBtn" disabled>Confirm Appointment</button>
+                </div>
+            </div>
+        </section>
 
-<!-- SERVICES -->
-<section id="services" class="fade-in">
-    <h2>Our Services</h2>
-    <div class="services">
-        <div class="card">General Consultation</div>
-        <div class="card">Pediatrics</div>
-        <div class="card">Cardiology</div>
-        <div class="card">Laboratory Tests</div>
-    </div>
-</section>
+        <section class="doctors-container" id="doctors">
+            <h3 class="section-title">Select Your Doctor</h3>
+            <p class="section-subtitle">Choose from our team of experienced Ethiopian specialists</p>
+            <div class="doctor-list" id="doctorList"></div>
+        </section>
 
-<!-- APPOINTMENT FORM -->
-<section id="appointment" class="fade-in">
-    <h2>Book an Appointment</h2>
+        <section class="time-slots-container">
+            <h3 class="section-title">Select Time Slot</h3>
+            <p class="section-subtitle">Available time slots for <span id="selectedDateText">your selected date</span></p>
+            <div class="time-slots" id="timeSlots"></div>
+        </section>
 
-    <form id="appointment-form">
-        <input type="text" id="name" placeholder="Full Name" required>
-        <input type="email" id="email" placeholder="Email Address" required>
-        <input type="tel" id="phone" placeholder="Phone Number" required>
+        <section class="services-container" id="services">
+            <h3 class="section-title">Our Medical Services</h3>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-heartbeat"></i>
+                    <h4>Cardiology</h4>
+                    <p>Comprehensive heart care and cardiovascular treatments.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-stethoscope"></i>
+                    <h4>Internal Medicine</h4>
+                    <p>Diagnosis and treatment of adult diseases.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-baby"></i>
+                    <h4>Pediatrics</h4>
+                    <p>Medical care for infants, children, and adolescents.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-female"></i>
+                    <h4>Obstetrics & Gynecology</h4>
+                    <p>Women's health, pregnancy, and reproductive care.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-user-md"></i>
+                    <h4>General Surgery</h4>
+                    <p>Surgical procedures for various medical conditions.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-bone"></i>
+                    <h4>Orthopedics</h4>
+                    <p>Bone, joint, and muscle care including surgeries.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-eye"></i>
+                    <h4>Ophthalmology</h4>
+                    <p>Eye care, vision tests, and surgical procedures.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-tooth"></i>
+                    <h4>Dentistry</h4>
+                    <p>Complete oral health and dental care services.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-allergies"></i>
+                    <h4>Dermatology</h4>
+                    <p>Skin, hair, and nail conditions treatment.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-ear"></i>
+                    <h4>ENT</h4>
+                    <p>Ear, nose, and throat disorders treatment.</p>
+                </div>
+            </div>
+        </section>
 
-        <select id="department" required>
-            <option value="">Select Department</option>
-            <option>General</option>
-            <option>Pediatrics</option>
-            <option>Cardiology</option>
-            <option>Laboratory</option>
-        </select>
+        <div class="modal-overlay" id="confirmationModal">
+            <div class="modal-container">
+                <div class="modal-header">
+                    <h3>Appointment Confirmed!</h3>
+                    <button class="close-modal" id="closeModal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="confirmation-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <p class="confirmation-message">Your appointment has been successfully booked at Addis Care Hospital.</p>
+                    <div class="confirmation-details">
+                        <div class="detail-row">
+                            <span class="detail-label">Appointment ID:</span>
+                            <span class="detail-value" id="confirmId">AD-2024-001</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Patient Name:</span>
+                            <span class="detail-value" id="confirmName"></span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Doctor:</span>
+                            <span class="detail-value" id="confirmDoctor"></span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Date & Time:</span>
+                            <span class="detail-value" id="confirmDateTime"></span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Department:</span>
+                            <span class="detail-value" id="confirmDepartment"></span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Consultation Fee:</span>
+                            <span class="detail-value" id="confirmFee"></span>
+                        </div>
+                    </div>
+                    <p class="confirmation-note">You will receive a confirmation SMS to your Ethiopian phone number. Please arrive 15 minutes before your scheduled time with your ID card.</p>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" id="printBtn">Print Details</button>
+                    <button class="btn btn-secondary" id="newAppointmentBtn">Book Another Appointment</button>
+                </div>
+            </div>
+        </div>
+    </main>
 
-        <input type="date" id="date" required>
+    <footer>
+        <div class="container">
+            <div class="footer-content" id="contact">
+                <div class="footer-column">
+                    <h3>Addis Care Hospital</h3>
+                    <p>Providing exceptional healthcare services with compassion and excellence since 1998. Accredited by the Ethiopian Ministry of Health.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#doctors">Find a Doctor</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#">Emergency Care</a></li>
+                        <li><a href="#">Health Insurance</a></li>
+                        <li><a href="#">Medical Checkup</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> Bole Road, Addis Ababa, Ethiopia</li>
+                        <li><i class="fas fa-phone"></i> +251 11 123 4567</li>
+                        <li><i class="fas fa-phone"></i> Emergency: +251 91 123 4567</li>
+                        <li><i class="fas fa-envelope"></i> info@addiscarehospital.com</li>
+                        <li><i class="fas fa-clock"></i> Mon-Sat: 8:00 AM - 8:00 PM</li>
+                        <li><i class="fas fa-clock"></i> Sun: 9:00 AM - 4:00 PM</li>
+                    </ul>
+                </div>
+                <div class="footer-column" id="about">
+                    <h3>About Us</h3>
+                    <p>Addis Care Hospital is a leading medical facility in Ethiopia committed to providing comprehensive healthcare with a patient-centered approach. We serve with Ethiopian hospitality and international standards.</p>
+                    <a href="#" class="footer-btn">Learn More</a>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 Addis Care Hospital. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a> | Registered with Ethiopian Medical Association</p>
+            </div>
+        </div>
+    </footer>
 
-        <button type="submit" class="btn">Submit Appointment</button>
-    </form>
-
-    <p id="form-message"></p>
-</section>
-
-<!-- CONTACT -->
-<section id="contact" class="fade-in">
-    <h2>Contact Us</h2>
-    <p><strong>Phone:</strong> +251 900 000 000</p>
-    <p><strong>Email:</strong> info@citycarehospital.com</p>
-    <p><strong>Location:</strong> Addis Ababa, Ethiopia</p>
-</section>
-
-<footer>
-    <p>© 2026 CityCare Hospital | All Rights Reserved</p>
-</footer>
-
-<script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
