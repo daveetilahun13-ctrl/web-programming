@@ -2,59 +2,79 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Hospital Appointment Booking</title>
-    <link rel="stylesheet" href="styled.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Appointment Booking System</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
 <header>
-    <div class="logo">CarePlus</div>
     <nav>
-        <a href="#book">Book</a>
-        <a href="#appointments">Appointments</a>
+        <h2 class="logo">CityCare Hospital</h2>
+        <ul>
+            <li><a href="#home" class="active">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#appointment">Book Appointment</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
     </nav>
 </header>
 
-<div class="hero">
-    <div class="hero-content">
-        <h1>Hospital Appointment Booking System</h1>
-        <p>Book your appointment with our professional doctors easily and quickly.</p>
-        <a href="#book"><button>Book Now</button></a>
-    </div>
-</div>
-
-<section id="book">
-    <h2>Book an Appointment</h2>
-    <form id="appointmentForm">
-        <input type="text" id="name" placeholder="Patient Name" required>
-        <select id="department" required>
-            <option value="">Select Department</option>
-            <option>General Medicine</option>
-            <option>Cardiology</option>
-            <option>Pediatrics</option>
-            <option>Orthopedics</option>
-        </select>
-        <select id="doctor" required>
-            <option value="">Select Doctor</option>
-            <option>Dr. Abebe</option>
-            <option>Dr. Helen</option>
-            <option>Dr. Samuel</option>
-            <option>Dr. Selam</option>
-        </select>
-        <input type="date" id="date" required>
-        <input type="time" id="time" required>
-        <button type="submit">Book Appointment</button>
-    </form>
+<!-- HERO -->
+<section id="home" class="hero fade-in">
+    <h1>Your Health, Our Priority</h1>
+    <p>Book hospital appointments easily and securely online</p>
+    <a href="#appointment" class="btn">Book Now</a>
 </section>
 
-<section id="appointments">
-    <h2>Booked Appointments</h2>
-    <ul class="services-list" id="appointmentList"></ul>
+<!-- SERVICES -->
+<section id="services" class="fade-in">
+    <h2>Our Services</h2>
+    <div class="services">
+        <div class="card">General Consultation</div>
+        <div class="card">Pediatrics</div>
+        <div class="card">Cardiology</div>
+        <div class="card">Laboratory Tests</div>
+    </div>
+</section>
+
+<!-- APPOINTMENT FORM -->
+<section id="appointment" class="fade-in">
+    <h2>Book an Appointment</h2>
+
+    <form id="appointment-form">
+        <input type="text" id="name" placeholder="Full Name" required>
+        <input type="email" id="email" placeholder="Email Address" required>
+        <input type="tel" id="phone" placeholder="Phone Number" required>
+
+        <select id="department" required>
+            <option value="">Select Department</option>
+            <option>General</option>
+            <option>Pediatrics</option>
+            <option>Cardiology</option>
+            <option>Laboratory</option>
+        </select>
+
+        <input type="date" id="date" required>
+
+        <button type="submit" class="btn">Submit Appointment</button>
+    </form>
+
+    <p id="form-message"></p>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="fade-in">
+    <h2>Contact Us</h2>
+    <p><strong>Phone:</strong> +251 900 000 000</p>
+    <p><strong>Email:</strong> info@citycarehospital.com</p>
+    <p><strong>Location:</strong> Addis Ababa, Ethiopia</p>
 </section>
 
 <footer>
-    <p>© 2026 CarePlus Hospital | Web Programming Assignment</p>
+    <p>© 2026 CityCare Hospital | All Rights Reserved</p>
 </footer>
 
 <script src="script.js"></script>
-</body>           
+</body>
 </html>
