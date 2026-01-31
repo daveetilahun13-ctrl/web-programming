@@ -10,7 +10,7 @@ body {
     color: #333;
 }
 
-
+/* NAVBAR */
 header {
     background: #0077b6;
     padding: 15px 40px;
@@ -42,7 +42,7 @@ nav ul li a:hover {
     text-decoration: underline;
 }
 
-
+/* HERO */
 .hero {
     background: linear-gradient(to right, #0077b6, #0096c7);
     color: #fff;
@@ -67,7 +67,7 @@ nav ul li a:hover {
     cursor: pointer;
 }
 
-
+/* SECTIONS */
 section {
     padding: 70px 10%;
     text-align: center;
@@ -87,7 +87,7 @@ section {
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
-
+/* FORM */
 form {
     max-width: 400px;
     margin: auto;
@@ -109,7 +109,7 @@ form select {
     color: green;
 }
 
-
+/* FOOTER */
 footer {
     background: #0077b6;
     color: #fff;
@@ -117,7 +117,7 @@ footer {
     padding: 20px;
 }
 
-
+/* FADE IN */
 .fade-in {
     opacity: 0;
     transform: translateY(30px);
@@ -129,7 +129,7 @@ footer {
     transform: translateY(0);
 }
 
-
+/* RESPONSIVE */
 @media (max-width: 768px) {
     .hero h1 {
         font-size: 30px;
